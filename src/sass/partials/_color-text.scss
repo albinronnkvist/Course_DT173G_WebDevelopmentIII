@@ -1,0 +1,78 @@
+/*
+File: _color-text.scss
+Description: text & colors
+Author: Albin Rönnkvist
+*/
+
+// Custom font
+@font-face
+{
+    font-family: Raleway-heavy;
+    src: url('../fonts/Raleway-Heavy.ttf'),
+}
+@font-face
+{
+    font-family: Raleway;
+    src: url('../fonts/Raleway-Regular.ttf'),
+}
+
+
+
+// Variables
+// Fonts
+$heading-font: Raleway-heavy, Helvetica, sans-serif;
+$main-font: Raleway, Arial, sans-serif;
+$heading-size: 6em;
+$heading-color: #262626;
+$text-size: 1em;
+
+// Colors
+$color-bg: #fefefe;
+$main-color: #8860D0;
+$text-color: #333333;
+$link-color: #5680E9;
+
+
+
+// Mixins
+// Gradients
+@mixin linear-gradient($direction, $color-stops...) {
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: linear-gradient($direction, $color-stops);
+}
+
+$base-font-size: 38px;
+$heading-scale: 8;
+
+// Headings
+@mixin headings($from: 1, $to: 6){
+    @for $i from $from through $to{
+      h#{$i}{
+        @content
+      }
+    }
+}
+
+
+
+// Color-functions
+// Change text-color based on background-color
+@function set-color($text-color) {
+    @if (lightness($color-bg) > 50) {
+      @return $text-color;
+    }
+    @else {
+      @return #fefefe;
+    }
+}
+
+// Change heading-color based on background-color
+@function set-hcolor($heading-color) {
+    @if (lightness($color-bg) > 50) {
+      @return $heading-color;
+    }
+    @else {
+      @return #fefefe;
+    }
+}

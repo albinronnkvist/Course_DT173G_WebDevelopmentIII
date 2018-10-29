@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/favicon.png" sizes="16x16 32x32" type="image/png">
+
+    <!-- Title -->
+    <title>Poängliga | Redigera</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="css/main-sass.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <!-- Logo -->
+        <a id="header-logo" href="index.html" title="Tillbaka till start"></a>
+        <a id="menutoggle" href="#">Meny</a>
+        <ul id="mainmenu">
+            <li><a href="index.html">Start</a></li>
+            <li><a href="create.html">Skapa</a></li>
+            <li><a class="active" href="edit.html">Ändra</a></li>
+        </ul>
+    </header>
+
+    <!-- Main container -->
+    <div id="container">
+
+        <div id="breadcrumbs">
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li class="crumbschildren"><a id="opencrumbs">Ändra</a></li>
+            </ul>
+        </div>  
+
+        <h1>Ändra</h1>
+        <p class="textCenter">Redigera eller radera spelare</p>
+        <br>
+        
+        <!-- Loading icon -->
+        <div id="load"></div>
+        
+        <!-- Main content -->
+        <div id="content">
+
+            <!-- Player stats table -->
+            <table id="poangliga">
+                <thead>
+                    <tr><th>Namn</th><th>Lagnamn</th><th>Redigera</th><th>Radera</th></tr>
+                </thead>
+            </table>
+
+        </div><!-- /.#content -->
+
+    </div><!-- /.#container -->
+
+    <!-- Back to top -->
+    <a onclick="topFunction()" id="to-top" title="Tillbaka till toppen"><i class="fas fa-angle-up"></i></a>
+
+    <!-- Footer -->
+    <footer>
+        <p class="pFooter" id="footertext"></p>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <script src="js/main.min.js"></script>
+
+</body>
+</html>

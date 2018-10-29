@@ -1,0 +1,33 @@
+/*
+File: _mediaqueries.scss
+Description: all mediaqueries
+Author: Albin Rönnkvist
+*/
+
+// Very large screens
+@mixin bp-xl {
+    @media only screen and (min-width: 1440px) {
+        @content;
+    }
+  }
+
+// Large screens
+@mixin bp-large {
+    @media only screen and (min-width: 800px) and (max-width: 1440px) {
+        @content;
+    }
+}
+
+// Medium sized screens(tablet, large phones)
+@mixin bp-medium {
+    @media only screen and (min-width: 600px) and (max-width: 800px) {
+        @content;
+    }
+}
+
+// Small screens(phones)
+@mixin bp-small {
+    @media only screen and (max-width: 600px) {
+        @content;
+    }
+}

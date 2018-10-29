@@ -1,0 +1,903 @@
+/*
+File: base.scss
+Description: base file
+Author: Albin Rönnkvist
+*/
+
+// Imports
+@import "partials/reset";
+@import "partials/color-text";
+@import "partials/mediaqueries";
+
+// Variables
+$margin-center: 0 auto;
+
+
+
+// Body
+body {
+  font-family: $main-font;
+  background-color: $color-bg;
+}
+
+
+
+// Text
+// Headings
+@include headings() {
+    font-family: $heading-font;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+h1 {
+    font-size: $heading-size - 0.5em;
+    color: set-hcolor($heading-color);
+    // Media queries
+    @include bp-small {
+        font-size: $heading-size - 2.5em;
+    }
+}
+
+h2 {
+    font-size: $heading-size - 2.5em;
+    color: set-hcolor(lighten($heading-color, 5));
+    // Media queries
+    @include bp-small {
+        font-size: $heading-size - 3em;
+    }
+}
+
+h3 {
+    font-size: $heading-size - 3em;
+    color: set-hcolor(lighten($heading-color, 10));
+    // Media queries
+    @include bp-small {
+        font-size: $heading-size - 4em;
+    }
+}
+
+h4 {
+    font-size: $heading-size - 3.5em;
+    color: set-hcolor(lighten($heading-color, 15));
+    // Media queries
+    @include bp-small {
+        font-size: $heading-size - 4.75em;
+    }
+}
+
+h5 {
+    font-size: $heading-size - 4em;
+    color: set-hcolor(lighten($heading-color, 20));
+    // Media queries
+    @include bp-small {
+        font-size: $heading-size - 4.5em;
+    }
+}
+
+h6 {
+    font-size: $heading-size - 5em;
+    color: set-hcolor(lighten($heading-color, 25));
+}
+
+
+
+// Text
+a, 
+p {
+    font-size: $text-size;
+}
+
+// Plain text
+p {
+    color: set-color($text-color);
+}
+
+// Links
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($link-color, 20);
+        border-bottom: 2px solid darken($link-color, 20);
+    }
+
+    &:visited {
+        color: $main-color;
+
+        &:hover {
+            color: darken($link-color, 20);
+            border-bottom: 2px solid darken($link-color, 20);
+        }
+    }
+}
+
+// centered text
+.textCenter {
+    text-align: center;
+} 
+
+
+
+// Buttons
+// Main Button
+%button-main {
+    color: #ffffff;
+    background-color: $link-color;
+    margin-top: 10px;
+    padding: 20px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8em;
+    cursor: pointer;
+    -webkit-appearance: none;
+
+    // Media queries
+    @include bp-small {
+        padding: 10px 14px;
+    }
+
+    &:hover {
+        background: darken($link-color, 20);
+        color: #ffffff;
+        border-bottom: none;
+    }
+}
+
+// a.button
+a.button, 
+a.deletebutton {
+    @extend %button-main;
+    display: inline-block;
+}
+
+a.deletebutton {
+    background-color: #cc0000;
+
+    &:hover {
+        background: darken(#cc0000, 20);
+    }
+}
+
+
+
+// Header
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    padding-right: 10%;
+    padding-left: 10%;
+    height: 100px;
+    @include linear-gradient(to right, $main-color, $link-color);
+    z-index: 98;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.22);
+
+    // Media queries
+    @include bp-small {
+        width: 97%;
+        padding-right: 1.5%;
+        padding-left: 1.5%;
+        height: 60px;
+    }
+
+    @include bp-medium {
+        width: 97%;
+        padding-right: 1.5%;
+        padding-left: 1.5%;
+        height: 60px;
+    }
+
+    @include bp-xl {
+        width: 60%;
+        padding-right: 20%;
+        padding-left: 20%;
+    }
+}
+
+#big-image {
+    width: 100%;
+    overflow: hidden;
+    @include linear-gradient(to right, $main-color, $link-color);
+
+    img {
+        width: 100%;
+        max-width: 1920px;
+    }
+
+    // Media queries
+    @include bp-small {
+        margin-top: 20px;
+    }
+}
+
+#header-logo {
+    width: 208px;
+    height: 70px;
+    margin-top: 15px;
+    background-image: url("../img/logo.png");
+    background-repeat: no-repeat;
+    background-size: 208px 70px;
+    float: left;
+
+        &:hover {
+            opacity: 0.8;
+            border-bottom: none;
+        }
+
+    // Media queries
+    @include bp-small {
+        margin-top: 10px;
+        width: 119px;
+        height: 40px;
+        background-size: 119px 40px;
+    }
+
+    @include bp-medium {
+        margin-top: 10px;
+        width: 119px;
+        height: 40px;
+        background-size: 119px 40px;
+    }
+}
+
+// Menu
+#mainmenu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: $main-font;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    float: right;
+    z-index: 999;
+
+    // Media queries
+    @include bp-small {
+        width: 100%;
+        background-color: #262626;
+        height: auto;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    @include bp-medium {
+        width: 100%;
+        background-color: #262626;
+        height: auto;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    li {
+        margin-top: 15px;
+        margin-right: 10px;
+        float: left;
+        
+        // Media queries
+        @include bp-small {
+            width: 100%;
+            margin-top: 0;
+            margin-right: 0;
+        }
+
+        @include bp-medium {
+            width: 100%;
+            margin-top: 0;
+            margin-right: 0;
+        }
+
+        &:first-child {
+            margin-left: 15px;
+
+            // Media queries
+            @include bp-small {
+                margin-left: 0
+            }
+
+            @include bp-medium {
+                margin-left: 0
+            }
+        }
+
+        a {
+            display: block;
+            color: #fefefe;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+            &:hover {
+                background-color: $color-bg;
+                color: $main-color;
+                border-bottom: none;
+                border-radius: 5px;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+                // Media queries
+                @include bp-small {
+                    border-bottom: none;
+                    background-color: $main-color;
+                    color: #fefefe;
+                    border-radius: 0;
+                }
+
+                @include bp-medium {
+                    border-bottom: none;
+                    background-color: $main-color;
+                    color: #fefefe;
+                    border-radius: 0;
+                }
+            }
+
+            &:visited {
+                color: #fefefe;
+            }
+
+            &:visited:hover {
+                background-color: #fefefe;
+                color: $main-color;
+                border-radius: 5px;
+                
+                // Media queries
+                @include bp-small {
+                    border-bottom: none;
+                    background-color: $main-color;
+                    color: #fefefe;
+                    border-radius: 0;
+                }
+
+                @include bp-medium {
+                    border-bottom: none;
+                    background-color: $main-color;
+                    color: #fefefe;
+                    border-radius: 0;
+                }
+            }
+
+            &.active {
+                background-color: $color-bg;
+                color: $main-color;
+                border-bottom: none;
+                border-radius: 5px;
+                box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+                cursor: default;
+
+                // Media queries
+                @include bp-small {
+                    border-bottom: none;
+                    background-color: $main-color;
+                    color: $color-bg;
+                    border-radius: 0;
+                }
+
+                @include bp-medium {
+                    border-bottom: none;
+                    background-color: $main-color;
+                    color: $color-bg;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+}
+
+#menutoggle {
+    display: none;
+    border: 1px solid $color-bg;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    float: right;
+    text-align: center;
+    font-size: 1.3em;
+    color: $color-bg;
+    height: 30px;
+
+        &:before {
+            content: "☰ ";
+        }
+
+    @include bp-small {
+        display: block;
+    }
+
+    @include bp-medium {
+        display: block;
+    }
+}
+
+#menutoggle.toggleactive {
+    background-color: #262626;
+    height: 40px;
+    margin-right: -1.5%;
+    padding-right: 3%;
+    border: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+
+        &:hover {
+            background-color: #262626;
+        }
+
+        &:before {
+            content: "✕ ";
+        }
+}
+
+
+
+// Main container
+#container {
+    width: 80%;
+    margin: $margin-center;
+    margin-top: 100px;
+    padding: 2%;
+    min-height: 100vh;
+
+    // Media queries
+    @include bp-small {
+        width: 98%;
+        padding: 1%;
+        margin-top: 70px;
+    }
+
+    @include bp-medium {
+        width: 96%;
+        margin-top: 60px;
+    }
+
+    @include bp-xl {
+        width: 60%;
+    }
+}
+
+
+
+// Content
+#content {
+    width: 100%;
+    height: auto;
+}
+
+
+
+// Footer
+footer {
+    width: 100%;
+    margin-top: 40px;
+
+    p {
+        text-align: center;
+    }
+}
+
+
+
+// Table
+table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.22);
+
+    @include bp-small {
+        font-size: 0.8em;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: $main-color;
+        color: white;
+    }
+
+    #th-goals, #th-assists, #th-points {
+        padding: 0;
+        @include bp-small {
+            text-align: center;
+        }
+        a {
+            display: block;
+            color: $color-bg;
+            cursor: pointer;
+            padding: 12px 8px 12px 8px;
+            
+            &:hover {
+                border-bottom: none;
+
+                @include bp-large {   
+                    color: $color-bg;
+                    background-color: $link-color;
+                    border-bottom: none;
+                }
+                @include bp-xl {
+                    color: $color-bg;
+                    background-color: $link-color;
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    .active-desc {
+        color: $color-bg;
+        background-color: $link-color;
+
+        a {
+            background-color: $link-color;
+
+            &:after {
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: " \f0dd";
+                position: relative;
+                top: -2px;
+            }
+
+            &:hover {
+                color: $color-bg;
+                background-color: $link-color;
+                border-bottom: none;
+            }
+        }
+    }
+
+    a.button, 
+    a.deletebutton {
+        margin-top: 0;
+        padding: 10px 14px;
+        display: block;
+        max-width: 14px;
+        max-height: 20px;
+        i {
+            pointer-events: none;
+        }
+
+        @include bp-small {
+            text-align: center;
+        }
+    }
+}
+
+
+
+// Form
+form {
+    width: 95%;
+    border: 2px solid $main-color;
+    padding: 2%;
+    border-radius: 5px;
+    float: left;
+
+    p {
+        width: 96%;
+        margin-bottom: 5px;
+        float: left;
+    }
+
+    input[type=submit],
+    input[type=button] {
+        @extend %button-main;
+        border: none;
+        float: left;
+
+        // Media queries
+        @include bp-small {
+            padding: 20px 30px;
+        }
+
+        @include bp-medium {
+            padding: 20px 30px;
+        }
+    }
+
+    select {
+        width: 100%;
+        padding: 10px 16px;
+        margin: 8px 0;
+        border: 1px solid $link-color;
+        font-size: 16px;
+    }
+
+    input[type=text], 
+    input[type=number] {
+        width: 100%;
+        padding: 10px 16px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid $link-color;
+        font-size: 16px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .fullwidth {
+        width: 100%;
+        float: left;
+        margin-top: 40px;
+    }
+
+    .halfwidth {
+        width: 49%;
+        float: left;
+
+            &:first-child {
+                margin-right: 2%;
+
+                // Media queries
+                @include bp-small {
+                    margin-right: 0;
+                }
+
+                @include bp-medium {
+                    margin-right: 0;
+                }
+            }
+
+        // Media queries
+        @include bp-small {
+            width: 100%;
+        }
+
+        @include bp-medium {
+            width: 100%;
+        }
+    }
+
+    .numberwidth {
+        width: 49%;
+        float: left;
+
+            &:first-child {
+                margin-right: 2%;
+
+                // Media queries
+                @include bp-small {
+                    margin-right: 0;
+                }
+
+                @include bp-medium {
+                    margin-right: 0;
+                }
+            }
+
+        // Media queries
+        @include bp-small {
+            width: 100%;
+        }
+
+        @include bp-medium {
+            width: 100%;
+        }
+    }
+}
+
+
+
+// Modal
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999999999999999999999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: $color-bg;
+        margin: 15% auto; /* 30% from the top and centered */
+        padding: 20px;
+        width: 20%;
+        height: auto;
+        min-width: 260px;
+
+        @include bp-small {
+            margin: 30% auto;
+        }
+
+        @include bp-medium {
+            margin: 30% auto;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.25em;
+
+            i {
+                font-size: 4em;
+            }
+        }
+    }
+
+    /* The Close Button */
+    #close {
+        @extend %button-main;
+        display: inline-block;
+        color: $color-bg;
+        background-color: #4BB543;
+        text-align: center;
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+
+    #close:hover,
+    #close:focus {
+        opacity: 0.8;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+    }
+}
+
+
+
+// Loading icon
+#load{
+    width:100%;
+    height: 200px;
+    z-index:9999;
+    background:url("../img/loading-icon-small.gif") no-repeat center center;
+}
+
+
+
+/* Back to top button */
+#to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 1.5em;
+    border: none;
+    outline: none;
+    background-color: $link-color;
+    color: $color-bg;
+    cursor: pointer;
+    padding: 15px 30px;
+    border-radius: 4px;
+    transition: 1s;
+
+    @include bp-small {
+        bottom: 2%;
+        right: 2%;
+    }
+
+    @include bp-medium {
+        bottom: 2%;
+        right: 2%;
+    }
+
+    &:hover {
+        background-color: darken($link-color, 20);
+        color: $color-bg;
+        animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) infinite;
+        transform: translate3d(0, 0, 0);
+        border-bottom: none;
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+    transform: translate3d(0, 0, 0);
+    }
+
+    20%, 80% {
+    transform: translate3d(0, 4px, 0);
+    }
+
+    30%, 50%, 70% {
+    transform: translate3d(0, 4px, 0);
+    }
+
+    40%, 60% {
+    transform: translate3d(0, 4px, 0);
+    }
+}
+
+
+
+// Breadcrumbs
+#breadcrumbs {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+
+    @include bp-small {
+        margin-left: 1%;
+    }
+
+    ul {
+
+        li {
+            position: relative;
+            float: left;
+            transform: skewX(-15deg);  
+            background-color: $color-bg;
+            box-shadow: -2px 0px 20px -6px rgba(0,0,0,0.5);
+            z-index: 1;
+            width: auto;
+            transition: all 0.5s;
+            list-style-type: none;
+            border-radius: 5px;
+            margin-left: -50px;
+
+            a {
+                display: block;
+                padding: 10px;
+                font-size: 1em;
+                transform: skewX(15deg);
+                text-decoration:none;
+                color: $text-color;
+                font-weight: 300;
+                transition: none;
+
+                &:hover {
+                    background-color: transparent;
+                    border-bottom: none;
+                    color: $color-bg;
+                }
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                background-color: $main-color;
+
+                a {
+                    color: $color-bg;
+
+                    &:hover {
+                        color: $color-bg;
+                        background-color: transparent;
+                        cursor: default;
+                    }
+                }
+
+                &:hover {
+                    background-color: $main-color;
+                }
+            }
+
+            &:hover {
+                background-color: $link-color;
+            }
+        }
+
+        &:hover {
+
+            li {
+                margin-left: 0;
+            }
+        }
+    }
+}
