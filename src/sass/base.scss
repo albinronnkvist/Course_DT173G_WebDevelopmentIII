@@ -492,7 +492,6 @@ table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.22);
 
     @include bp-small {
         font-size: 0.8em;
