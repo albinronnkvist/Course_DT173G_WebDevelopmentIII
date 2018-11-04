@@ -3,7 +3,6 @@ File: consume.js
 Description: Consume web service
 Author: Albin Rönnkvist
 */
-
 "use strict";
 
 

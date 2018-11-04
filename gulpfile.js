@@ -7,6 +7,8 @@ const htmlmin = require("gulp-htmlmin");
 const imagemin = require("gulp-imagemin");
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
+const typescript = require("gulp-typescript");
+const tsProject = typescript.createProject("tsconfig.json");
 
 
 
@@ -31,10 +33,12 @@ gulp.task("copyimages", function() {
 // Concat & minify JavaScript-files
 gulp.task("convertjs", function() {
     return gulp.src("src/js/*.js")
+        .pipe(sourcemaps.init())
         .pipe(concat("main.min.js"))
         .pipe(uglify().on('error', function(e){
             console.log(e);
-        }))              
+        }))  
+        .pipe(sourcemaps.write())            
         .pipe(gulp.dest("pub/js"));
 });
 
@@ -61,6 +65,22 @@ gulp.task("copyfonts", function() {
 
 
 
+// compile and TypeScript to JavaScript
+gulp.task("convertts", function () {
+    return gulp.src("src/ts/**/*.ts")
+        .pipe(sourcemaps.init())
+        .pipe(tsProject()) 
+        .js
+        .pipe(concat("ts.min.js"))
+        .pipe(uglify().on('error', function(e){
+            console.log(e);
+        })) 
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest("pub/js"));
+});
+
+
+
 // Control changes in the filesystem
 gulp.task("watcher", function() {
     gulp.watch("src/*.html", {debounceDelay: 2000}, ['copyhtml']);
@@ -68,9 +88,10 @@ gulp.task("watcher", function() {
     gulp.watch("src/js/*.js", {debounceDelay: 2000}, ['convertjs']);
     gulp.watch("src/sass/**/*.scss", {debounceDelay: 2000}, ['convertsass']);
     gulp.watch("src/fonts/*.{otf,ttf}", {debounceDelay: 2000}, ['copyfonts']);
+    gulp.watch("src/ts/**/*.ts", {debounceDelay: 2000}, ['convertts']);
 });
 
 
 
 // Run multiple tasks
-gulp.task("default", ["copyhtml", "copyimages", "convertjs", "convertsass", "copyfonts", "watcher"]);
+gulp.task("default", ["copyhtml", "copyimages", "convertjs", "convertsass", "copyfonts", "convertts", "watcher"]);

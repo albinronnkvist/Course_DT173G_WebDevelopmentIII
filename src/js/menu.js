@@ -1,9 +1,10 @@
+/*jslint browser:true */
 /*
 File: menu.js
 Description: Toggle and display menu
 Author: Albin Rönnkvist
 */
-
+"use strict";
 
 
 // Variables
@@ -14,6 +15,7 @@ var mainmenuEl = document.getElementById("mainmenu");
 
 // Toggle menu
 function toggle() {
+
     if (mainmenuEl.style.display === "none") {
         mainmenuEl.style.display = "block";
         menutoggleEl.classList.add("toggleactive");
@@ -39,6 +41,7 @@ else {
 
 // Show / Hide menu on browser resize
 function displaymenu() {
+
     if (window.matchMedia("(min-width: 800px)").matches) {
         mainmenuEl.style.display = "block";
     } 

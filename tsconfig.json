@@ -1,0 +1,9 @@
+{
+    "files": [
+        "src/ts/tablesort.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5"
+    }
+}
