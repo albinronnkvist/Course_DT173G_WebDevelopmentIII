@@ -10,7 +10,7 @@ Author: Albin Rönnkvist
 /*
 Main URL
 */
-var URL = "https://albinronnkvist.se/dt173g/projekt/webbtjanst/playerstats.php/spelare";
+var URL = "https://albinronnkvist.se/skola/dt173g/projekt/webbtjanst/playerstats.php/spelare";
 
 
 
