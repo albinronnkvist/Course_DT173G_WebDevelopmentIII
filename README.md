@@ -1,12 +1,22 @@
 # DT173G - Web Development III
-__Projektnamn:__ Poängliga
 
-## Beskrivning
-Denna webbplats konsumerar en egenskapad REST-baserad webbtjänst som hanterar spelarstatistik. I webbtjänsten finns det metoder för att skapa, hämta, uppdatera och radera resurser i form av spelare med tillhörande statistik. På webbplatsen kan man skapa en spelare med dess namn och lag samt lägga till antal mål och assist som spelaren har gjort. Målen och assisten räknas sedan ihop till ett sammanlagt antal poäng. Man kan även ändra / uppdatera en spelare med specifik information samt radera enskilda spelare och dess information. Spelare hämtas i olika tabeller med statistik eller övrig information.
+Interactive Websites with JavaScript and PHP.
 
-[__Webbplats__](https://albinronnkvist.se/skola/dt173g/projekt/webbplats/pub/index.html) 
-|
-[__Rapport__](https://github.com/albinronnkvist/Course_DT173G_WebDevelopmentIII/blob/master/DT173G_essay_sv.pdf)
-## Installation
-1. Ladda ned projektet med kommandot: _git clone https://github.com/albinronnkvist/Kurs_Webbutveckling3_
-2. Installera alla dependencies med kommandot: _npm install_.
+In this course, I developed REST-based web services using PHP and MySQL, which I then consumed with JavaScript to create interactive web applications.
+
+## Project
+
+This website interacts with a custom-built REST API for managing player statistics. The API provides CRUD methods to manage player records along with their statistics.  
+
+### Features: 
+- **Create players** with name and team.  
+- **Add goals and assists**, which are automatically summed into a total score.  
+- **Update player information** as needed.  
+- **Delete players** and their associated statistics.  
+- **Display players** in various tables with statistics and additional details.  
+
+[Essay](https://github.com/albinronnkvist/Course_DT173G_WebDevelopmentIII/blob/master/DT173G_essay_sv.pdf)
+
+### Installation
+1. Clone the project
+2. Install all dependencies: `npm install`
