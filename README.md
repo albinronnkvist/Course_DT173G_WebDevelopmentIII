@@ -6,7 +6,9 @@ In this course, I developed REST-based web services using PHP and MySQL, which I
 
 ## Project
 
-This website interacts with a custom-built REST API for managing player statistics. The API provides CRUD methods to manage player records along with their statistics.  
+This website interacts with a custom-built REST API for managing player statistics. The API provides CRUD methods to manage player records along with their statistics. 
+
+[Essay](https://github.com/albinronnkvist/Course_DT173G_WebDevelopmentIII/blob/master/DT173G_essay_sv.pdf)
 
 ### Features: 
 - **Create players** with name and team.  
@@ -14,8 +16,6 @@ This website interacts with a custom-built REST API for managing player statisti
 - **Update player information** as needed.  
 - **Delete players** and their associated statistics.  
 - **Display players** in various tables with statistics and additional details.  
-
-[Essay](https://github.com/albinronnkvist/Course_DT173G_WebDevelopmentIII/blob/master/DT173G_essay_sv.pdf)
 
 ### Installation
 1. Clone the project
